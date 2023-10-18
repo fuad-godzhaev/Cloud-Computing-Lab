@@ -2,6 +2,12 @@ body {
     background-color: #000000;
     margin-top: 50px;
     font-family: 'Lato';
+    font-size: 14px;
+}
+
+h1 {
+	font-size: 30px;
+	color: #ffffff;
 }
 
 .item {
@@ -36,4 +42,10 @@ body {
 
 button:focus {
     border: 1px solid #333;
+}
+
+img {
+	max-width: 30%;
+	height: auto;
+	margin: auto;
 }

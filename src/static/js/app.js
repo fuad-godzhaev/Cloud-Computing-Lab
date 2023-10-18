@@ -133,7 +133,7 @@ function ItemDisplay({ item, onItemUpdate, onItemRemoval }) {
     };
 
     const removeItem = () => {
-        fetch(`/items/${item.id}`, { method: 'DELETE' }).then(() =>
+        fetch(`/items`, { method: 'DELETE' }).then(() =>
             onItemRemoval(item),
         );
     };
