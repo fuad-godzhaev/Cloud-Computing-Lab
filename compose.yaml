@@ -1,7 +1,7 @@
 services:
   app:
-    image: node:18-alpine
-    command: sh -c "yarn install && yarn run dev"
+    container_name: main_app
+    image: getting-started
     ports:
       - 127.0.0.1:3000:3000
     working_dir: /app
@@ -14,13 +14,10 @@ services:
       MYSQL_DB: todos
       
   app2:
+    container_name: read_app
     image: wirexia0/cloud-computing-lab
-    command: sh -c "yarn install && yarn run dev"
     ports:
       - 127.0.0.1:80:3000
-    working_dir: /app
-    volumes:
-      - ./:/app
     environment:
       MYSQL_HOST: mysql
       MYSQL_USER: root
