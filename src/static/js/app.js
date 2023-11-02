@@ -75,7 +75,7 @@ function AddItemForm({ onNewItem }) {
 
     const submitNewItem = e => {
         e.preventDefault();
-        setSubmitting(true);
+        setSubmitting(false);
         fetch('/items', {
             method: 'POST',
             body: JSON.stringify({ name: newItem }),
@@ -91,25 +91,7 @@ function AddItemForm({ onNewItem }) {
 
     return (
         <Form onSubmit={submitNewItem}>
-            <InputGroup className="mb-3">
-                <Form.Control
-                    value={newItem}
-                    onChange={e => setNewItem(e.target.value)}
-                    type="text"
-                    placeholder="New Item"
-                    aria-describedby="basic-addon1"
-                />
-                <InputGroup.Append>
-                    <Button
-                        type="submit"
-                        variant="success"
-                        disabled={!newItem.length}
-                        className={submitting ? 'disabled' : ''}
-                    >
-                        {submitting ? 'Adding...' : 'Add item'}
-                    </Button>
-                </InputGroup.Append>
-            </InputGroup>
+         
         </Form>
     );
 }
@@ -163,16 +145,7 @@ function ItemDisplay({ item, onItemUpdate, onItemRemoval }) {
                 <Col xs={10} className="name">
                     {item.name}
                 </Col>
-                <Col xs={1} className="text-center remove">
-                    <Button
-                        size="sm"
-                        variant="link"
-                        onClick={removeItem}
-                        aria-label="Remove Item"
-                    >
-                        <i className="fa fa-trash text-danger" />
-                    </Button>
-                </Col>
+                
             </Row>
         </Container>
     );
